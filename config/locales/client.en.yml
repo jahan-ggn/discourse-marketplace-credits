@@ -3,7 +3,7 @@ en:
     admin:
       site_settings:
         categories:
-          TODO_plugin_name: "Plugin Name"
+          discourse_marketplace_credits: "Discourse Marketplace Credits"
   js:
-    discourse_plugin_name:
+    discourse_marketplace_credits:
       placeholder: placeholder

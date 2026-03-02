@@ -1,4 +1,4 @@
-# **Plugin Name** Plugin
+# **Discourse Marketplace Credits** Plugin
 
 **Plugin Summary**
 
