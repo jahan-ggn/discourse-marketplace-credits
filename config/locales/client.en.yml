@@ -6,4 +6,5 @@ en:
           discourse_marketplace_credits: "Discourse Marketplace Credits"
   js:
     discourse_marketplace_credits:
-      placeholder: placeholder
+      title: Discourse Marketplace Credits
+      admin_navigation: Discourse Marketplace Credits

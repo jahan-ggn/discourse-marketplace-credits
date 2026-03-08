@@ -1,1 +1,10 @@
 en:
+  site_settings:
+    discourse_marketplace_credits_enabled: "Enable the Marketplace Credits plugin"
+    marketplace_category: "The category where Marketplace listings are posted"
+    credits_per_purchase: "Number of Marketplace credits granted per purchase"
+    topic_expiry_days: "Number of days before a Marketplace topic is automatically deleted"
+    marketplace_stripe_product_id: "The Stripe product ID for Marketplace listings"
+    out_of_credits_message: "Message shown when a user with no credits tries to create a Marketplace topic"
+    marketplace_purchase_link_text: "Link text shown in the out-of-credits message"
+    cannot_move_to_marketplace_message: "Message shown when someone tries to move a topic into the Marketplace category"

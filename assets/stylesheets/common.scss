@@ -1,0 +1,19 @@
+.marketplace-credits-notice {
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-medium);
+  color: var(--primary);
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 0.9em;
+
+  a {
+    color: var(--tertiary);
+    font-weight: bold;
+  }
+
+  &.no-credits {
+    background: var(--danger-low);
+    border-color: var(--danger-medium);
+  }
+}

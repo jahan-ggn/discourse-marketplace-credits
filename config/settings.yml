@@ -1,4 +1,26 @@
-discourse_marketplace_credits:
+plugins:
   discourse_marketplace_credits_enabled:
     default: false
+    client: true
+  marketplace_category:
+    default: ""
+    type: category
+    client: true
+  credits_per_purchase:
+    default: 1
+    min: 1
+  topic_expiry_days:
+    default: 60
+    min: 1
+  marketplace_stripe_product_id:
+    default: ""
+    client: true
+  out_of_credits_message:
+    default: "You need to purchase another Marketplace listing to post again. %{purchase_link}"
+    client: true
+  marketplace_purchase_link_text:
+    default: "Purchase here"
+    client: true
+  cannot_move_to_marketplace_message:
+    default: "Topics cannot be moved into the Marketplace category. Please create a new listing."
     client: true
