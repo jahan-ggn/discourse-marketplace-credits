@@ -5,4 +5,6 @@ DiscourseMarketplaceCredits::Engine.routes.draw do
   # define routes here
 end
 
-Discourse::Application.routes.draw { mount ::DiscourseMarketplaceCredits::Engine, at: "discourse-marketplace-credits" }
+Discourse::Application.routes.draw do
+  mount ::DiscourseMarketplaceCredits::Engine, at: "discourse-marketplace-credits"
+end

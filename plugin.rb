@@ -43,7 +43,8 @@ after_initialize do
           purchase_link = "<a href='#{url}' target='_blank'>#{link_text}</a>"
         end
 
-        error_message = SiteSetting.cannot_move_to_marketplace_message.gsub("%{purchase_link}", purchase_link)
+        error_message =
+          SiteSetting.cannot_move_to_marketplace_message.gsub("%{purchase_link}", purchase_link)
         errors.add(:base, error_message)
         throw(:abort)
       end
@@ -51,8 +52,12 @@ after_initialize do
   end
 
   NewPostManager.add_handler do |manager|
-    next unless manager.args[:topic_id].blank?
-    next unless ::DiscourseMarketplaceCredits::CreditManager.marketplace_category?(manager.args[:category])
+    next if manager.args[:topic_id].present?
+    unless ::DiscourseMarketplaceCredits::CreditManager.marketplace_category?(
+             manager.args[:category],
+           )
+      next
+    end
 
     user = manager.user
     next if user.staff?
@@ -73,12 +78,12 @@ after_initialize do
     nil
   end
 
-  DiscourseEvent.on(:topic_created) do |topic, opts, user|
+  on(:topic_created) do |topic, opts, user|
     if ::DiscourseMarketplaceCredits::CreditManager.marketplace_category?(topic.category_id)
       topic.set_or_create_timer(
         TopicTimer.types[:delete],
         SiteSetting.topic_expiry_days * 24,
-        by_user: Discourse.system_user
+        by_user: Discourse.system_user,
       )
     end
   end

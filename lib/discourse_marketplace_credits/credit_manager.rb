@@ -6,7 +6,7 @@ module ::DiscourseMarketplaceCredits
     CHANNEL = "/marketplace-credits"
 
     def self.remaining(user)
-      return 0 unless user.present?
+      return 0 if user.blank?
       user.custom_fields[FIELD_NAME].to_i
     end
 
@@ -15,7 +15,7 @@ module ::DiscourseMarketplaceCredits
     end
 
     def self.add(user, amount = nil)
-      return unless user.present?
+      return if user.blank?
 
       amount ||= SiteSetting.credits_per_purchase
 
@@ -30,7 +30,7 @@ module ::DiscourseMarketplaceCredits
     end
 
     def self.deduct(user)
-      return false unless user.present?
+      return false if user.blank?
 
       DistributedMutex.synchronize("marketplace_credits_#{user.id}") do
         current = remaining(user)
