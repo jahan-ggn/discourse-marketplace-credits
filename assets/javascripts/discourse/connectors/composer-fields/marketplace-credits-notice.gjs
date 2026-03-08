@@ -12,6 +12,9 @@ export default class MarketplaceCreditsNotice extends Component {
   }
 
   get isMarketplaceCategory() {
+    if (!this.args.outletArgs?.model?.creatingTopic) {
+      return false;
+    }
     const categoryId = this.args.outletArgs?.model?.categoryId;
     if (!categoryId || !this.marketplaceCategoryId) {
       return false;
